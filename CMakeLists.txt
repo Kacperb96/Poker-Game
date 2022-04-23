@@ -14,10 +14,10 @@ if(NOT googletest_POPULATED)
     add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BUILD_DIR})
 endif()
 
-add_library(algorithmLib STATIC LibraryCode.cpp)
+add_library(Game STATIC Game.cpp)
 
-add_executable(mainApp main.cpp)
-target_link_libraries(mainApp algorithmLib)
+add_executable(main main.cpp)
+target_link_libraries(main Game)
 
 add_executable(testRunner test.cpp)
-target_link_libraries(testRunner algorithmLib gtest_main gmock_main)
+target_link_libraries(testRunner Game gtest_main gmock_main)

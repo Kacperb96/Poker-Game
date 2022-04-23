@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/kacper/Pulpit/PokerGame/Poker-Game/Game.hpp
+iostream
+-
+
+/home/kacper/Pulpit/PokerGame/Poker-Game/main.cpp
+Game.hpp
+/home/kacper/Pulpit/PokerGame/Poker-Game/Game.hpp
+
