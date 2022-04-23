@@ -9,6 +9,12 @@
 /home/kacper/Pulpit/PokerGame/Poker-Game/Game.hpp
 iostream
 -
+utility
+-
+vector
+-
+algorithm
+-
 
 /home/kacper/Pulpit/PokerGame/Poker-Game/main.cpp
 Game.hpp
