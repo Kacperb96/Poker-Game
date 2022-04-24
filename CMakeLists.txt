@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 
-project(Algorithms)
+project(PokerGame)
 
 include(FetchContent)
 FetchContent_Declare(googletest

@@ -202,7 +202,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=Algorithms
+CMAKE_PROJECT_NAME:STATIC=PokerGame
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=1.11.0
@@ -304,6 +304,12 @@ FETCHCONTENT_UPDATES_DISCONNECTED_GOOGLETEST:BOOL=OFF
 //Enable installation of googletest. (Projects embedding googletest
 // may want to turn this OFF.)
 INSTALL_GTEST:BOOL=ON
+
+//Value Computed by CMake
+PokerGame_BINARY_DIR:STATIC=/home/kacper/Pulpit/PokerGame/Poker-Game/build
+
+//Value Computed by CMake
+PokerGame_SOURCE_DIR:STATIC=/home/kacper/Pulpit/PokerGame/Poker-Game
 
 //Path to a program.
 _Python_EXECUTABLE:FILEPATH=/usr/bin/python3.8
