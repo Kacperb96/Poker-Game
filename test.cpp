@@ -1,34 +1,37 @@
 #include <gtest/gtest.h>
 #include "Game.hpp"
 
-TEST(ColourFunction, CheckingIsFlushFunction){
-    Card c1, c2, c3, c4, c5;
-    c1.first = Colour::clubs;
-    c1.second = Figures::K;
+class DeckOfCardsFixture : public testing::Test{
+    public:
+        void SetUp();
+    protected:
+        Card c1, c2, c3, c4, c5;
+};
 
-    c2.first = Colour::clubs;
-    c2.second = Figures::A;
+void DeckOfCardsFixture::SetUp(){
+    c1.first = Colour::Clubs;
+    c1.second = Figures::King;
 
-    c3.first = Colour::clubs;
-    c3.second = Figures::Q;
+    c2.first = Colour::Clubs;
+    c2.second = Figures::Ace;
 
-    c4.first = Colour::clubs;
-    c4.second = Figures::J;
+    c3.first = Colour::Clubs;
+    c3.second = Figures::Queen;
 
-    c5.first = Colour::clubs;
-    c5.second = Figures::three;
+    c4.first = Colour::Clubs;
+    c4.second = Figures::Jack;
 
-    CardDeck deck {};
-    deck.push_back(c1);
-    deck.push_back(c2);
-    deck.push_back(c3);
-    deck.push_back(c4);
-    deck.push_back(c5);
+    c5.first = Colour::Clubs;
+    c5.second = Figures::Three;
+};
+
+TEST_F(DeckOfCardsFixture, CheckingIsFlushFunction){
+    CardDeck deck {c1, c2, c3, c4, c5};
 
     EXPECT_EQ(isFlush(deck), true);
     Card c6;
-    c6.first = Colour::diamonds;
-    c6.second = Figures::six;
+    c6.first = Colour::Diamonds;
+    c6.second = Figures::Six;
 
     deck.pop_back();
     deck.push_back(c6);

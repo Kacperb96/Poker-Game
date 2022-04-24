@@ -4,26 +4,26 @@
 #include <algorithm>
 
 enum Colour{
-    spades,
-    hearts,
-    diamonds,
-    clubs
+    Spades,
+    Hearts,
+    Diamonds,
+    Clubs
 };
 
 enum Figures{
-    A,
-    K,
-    Q,
-    J,
-    ten,
-    nine,
-    eight,
-    seven,
-    six,
-    five,
-    four,
-    three,
-    two
+    Ace,
+    King,
+    Queen,
+    Jack,
+    Ten,
+    Nine,
+    Eight,
+    Seven,
+    Six,
+    Five,
+    Four,
+    Three,
+    Two
 };
 
 using Card = std::pair<Colour, Figures>;
