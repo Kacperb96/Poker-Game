@@ -31,3 +31,4 @@ using CardSet = std::vector<Card>;
 
 bool flush(CardSet&);
 bool onePair(CardSet&);
+bool twoPair(CardSet&);

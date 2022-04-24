@@ -21,3 +21,16 @@ bool onePair(CardSet& cardSet){
     }
     return false;
 }
+
+bool twoPair(CardSet& cardSet){
+    short counter{ 0 };
+
+    for(int i = 1; i < cardSet.size(); i++){
+        if(cardSet.at(i - 1).second == cardSet.at(i).second)
+            counter++;
+    }
+
+    std::cout << counter << std::endl;
+    if(counter == 2) return true;
+    else return false;
+}
