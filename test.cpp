@@ -6,7 +6,7 @@ class DeckOfCardsFixture : public testing::Test{
         void SetUp();
     protected:
         Card c1, c2, c3, c4, c5;
-        CardDeck flushDeck{c1, c2, c3, c4, c5};
+        CardSet flushSet{c1, c2, c3, c4, c5};
 };
 
 void DeckOfCardsFixture::SetUp(){
@@ -18,14 +18,14 @@ void DeckOfCardsFixture::SetUp(){
 };
 
 TEST_F(DeckOfCardsFixture, IsFlush){
-    EXPECT_EQ(isFlush(flushDeck), true);
+    EXPECT_EQ(isFlush(flushSet), true);
     Card c6;
     c6 = std::make_pair(Colour::Diamonds, Figures::Six);
 
-    flushDeck.pop_back();
-    flushDeck.push_back(c6);
+    flushSet.pop_back();
+    flushSet.push_back(c6);
     
-    EXPECT_EQ(isFlush(flushDeck), false);
+    EXPECT_EQ(isFlush(flushSet), false);
 }
 
 int main(int argc, char** argv){
