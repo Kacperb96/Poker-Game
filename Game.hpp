@@ -29,10 +29,15 @@ enum Figures{
 using Card = std::pair<Colour, Figures>;
 using CardDeck = std::vector<Card>;
 
-auto lambdaFlushClubs = [](Card& c){
-    if(c.first == 3) return true;
-};
 
 bool isFlush(CardDeck& deck){
-    return (std::all_of(deck.begin(), deck.end(), lambdaFlushClubs));
+    int counter{ 1 };
+
+    for(int i = 1; i < deck.size(); i++){
+        if(deck.at(i - 1).first == deck.at(i).first)
+            counter++;
+    }
+
+    if(counter == 5) return true;
+    else return false;
 }

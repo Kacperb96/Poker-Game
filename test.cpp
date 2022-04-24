@@ -26,6 +26,14 @@ TEST(ColourFunction, CheckingIsFlushFunction){
     deck.push_back(c5);
 
     EXPECT_EQ(isFlush(deck), true);
+    Card c6;
+    c6.first = Colour::diamonds;
+    c6.second = Figures::six;
+
+    deck.pop_back();
+    deck.push_back(c6);
+    
+    EXPECT_EQ(isFlush(deck), false);
 }
 
 int main(int argc, char** argv){
