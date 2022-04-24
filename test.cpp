@@ -6,24 +6,21 @@ class DeckOfCardsFixture : public testing::Test{
         void SetUp();
     protected:
         Card c1, c2, c3, c4, c5;
-        CardSet flushSet{c1, c2, c3, c4, c5};
+        CardSet flushSet;
 };
 
 void DeckOfCardsFixture::SetUp(){
-    c1 = std::make_pair(Colour::Clubs, Figures::Ace);
-    c2 = std::make_pair(Colour::Clubs, Figures::King);
-    c3 = std::make_pair(Colour::Clubs, Figures::Queen);
-    c4 = std::make_pair(Colour::Clubs, Figures::Jack);
-    c5 = std::make_pair(Colour::Clubs, Figures::Ten);
+    flushSet = {(std::make_pair(Colour::Clubs, Figures::Ace)), (std::make_pair(Colour::Clubs, Figures::King)),
+    (std::make_pair(Colour::Clubs, Figures::Queen)), (std::make_pair(Colour::Clubs, Figures::Jack)), (std::make_pair(Colour::Clubs, Figures::Ten))};
 };
 
 TEST_F(DeckOfCardsFixture, IsFlush){
     EXPECT_EQ(isFlush(flushSet), true);
-    Card c6;
-    c6 = std::make_pair(Colour::Diamonds, Figures::Six);
+    Card c;
+    c = std::make_pair(Colour::Diamonds, Figures::Six);
 
     flushSet.pop_back();
-    flushSet.push_back(c6);
+    flushSet.push_back(c);
     
     EXPECT_EQ(isFlush(flushSet), false);
 }
