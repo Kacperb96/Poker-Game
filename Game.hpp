@@ -29,4 +29,5 @@ enum Figures{
 using Card = std::pair<Colour, Figures>;
 using CardSet = std::vector<Card>;
 
-bool isFlush(CardSet&);
+bool flush(CardSet&);
+bool onePair(CardSet&);
