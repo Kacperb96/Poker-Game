@@ -25,7 +25,7 @@ void DeckOfCardsFixture::SetUp(){
     c5.second = Figures::Three;
 };
 
-TEST_F(DeckOfCardsFixture, CheckingIsFlushFunction){
+TEST_F(DeckOfCardsFixture, IsFlush){
     CardDeck deck {c1, c2, c3, c4, c5};
 
     EXPECT_EQ(isFlush(deck), true);
