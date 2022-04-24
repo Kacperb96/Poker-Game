@@ -29,6 +29,6 @@ enum Figures{
 using Card = std::pair<Colour, Figures>;
 using CardDeck = std::vector<Card>;
 
-void isFlush(){
-
+void isFlush(CardDeck& deck){
+    
 }

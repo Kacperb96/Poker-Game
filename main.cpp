@@ -3,7 +3,10 @@
 
 int main(){
     std::cout << "Main\n\n" << std::endl;
-    isFlush();
+    CardDeck deck {};
+    
+
+    isFlush(deck);
 
     return 0;
 }
