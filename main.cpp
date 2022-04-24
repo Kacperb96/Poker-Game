@@ -2,11 +2,7 @@
 
 
 int main(){
-    std::cout << "Main\n\n" << std::endl;
-    CardDeck deck {};
-    
-
-    isFlush(deck);
+    std::cout << "Main" << std::endl;
 
     return 0;
 }
