@@ -6,37 +6,26 @@ class DeckOfCardsFixture : public testing::Test{
         void SetUp();
     protected:
         Card c1, c2, c3, c4, c5;
+        CardDeck flushDeck{c1, c2, c3, c4, c5};
 };
 
 void DeckOfCardsFixture::SetUp(){
-    c1.first = Colour::Clubs;
-    c1.second = Figures::King;
-
-    c2.first = Colour::Clubs;
-    c2.second = Figures::Ace;
-
-    c3.first = Colour::Clubs;
-    c3.second = Figures::Queen;
-
-    c4.first = Colour::Clubs;
-    c4.second = Figures::Jack;
-
-    c5.first = Colour::Clubs;
-    c5.second = Figures::Three;
+    c1 = std::make_pair(Colour::Clubs, Figures::Ace);
+    c2 = std::make_pair(Colour::Clubs, Figures::King);
+    c3 = std::make_pair(Colour::Clubs, Figures::Queen);
+    c4 = std::make_pair(Colour::Clubs, Figures::Jack);
+    c5 = std::make_pair(Colour::Clubs, Figures::Ten);
 };
 
 TEST_F(DeckOfCardsFixture, IsFlush){
-    CardDeck deck {c1, c2, c3, c4, c5};
-
-    EXPECT_EQ(isFlush(deck), true);
+    EXPECT_EQ(isFlush(flushDeck), true);
     Card c6;
-    c6.first = Colour::Diamonds;
-    c6.second = Figures::Six;
+    c6 = std::make_pair(Colour::Diamonds, Figures::Six);
 
-    deck.pop_back();
-    deck.push_back(c6);
+    flushDeck.pop_back();
+    flushDeck.push_back(c6);
     
-    EXPECT_EQ(isFlush(deck), false);
+    EXPECT_EQ(isFlush(flushDeck), false);
 }
 
 int main(int argc, char** argv){
