@@ -34,3 +34,7 @@ bool twoPair(CardSet& cardSet){
     if(counter == 2) return true;
     else return false;
 }
+
+bool ThreeOfAKind(CardSet&){
+    
+}
