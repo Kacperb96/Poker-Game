@@ -26,10 +26,11 @@ enum Figures{
     Two
 };
 
-using Card = std::pair<Colour, Figures>;
+using Card = std::pair<Figures, Colour>;
 using CardSet = std::vector<Card>;
 
-bool flush(CardSet&);
 bool onePair(CardSet&);
 bool twoPair(CardSet&);
 bool ThreeOfAKind(CardSet&);
+bool flush(CardSet&);
+bool straight(CardSet&);
