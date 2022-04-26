@@ -9,10 +9,10 @@ bool flush(CardSet& cardSet){
 }
 
 bool onePair(CardSet& cardSet){
-    for(int i = 1; i < cardSet.size(); i++){
-        if(cardSet.at(i - 1).second == cardSet.at(i).second){
-            return true;
-            break;
+    for (std::size_t i = 0; i < cardSet.size(); ++i) {
+        for (std::size_t j = i + 1; j < cardSet.size(); ++j) {
+            if (cardSet[i].second == cardSet[j].second)
+                return true;
         }
     }
     return false;
@@ -26,7 +26,6 @@ bool twoPair(CardSet& cardSet){
             counter++;
     }
 
-    std::cout << counter << std::endl;
     if(counter == 2) return true;
     else return false;
 }
@@ -40,7 +39,6 @@ bool ThreeOfAKind(CardSet& cardSet){
         if(counter == 3) break;
     }
 
-    std::cout << counter << std::endl;
     if(counter == 3) return true;
     else return false;
 }
