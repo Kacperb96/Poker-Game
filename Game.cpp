@@ -1,14 +1,10 @@
 #include "Game.hpp"
 
 bool flush(CardSet& cardSet){
-    short counter{ 1 };
+    if(std::all_of(cardSet.begin(), cardSet.end(), [&cardSet](Card c){
+        return c.first == cardSet[0].first;   
+    })) return true;
 
-    for(int i = 1; i < cardSet.size(); i++){
-        if(cardSet.at(i - 1).first == cardSet.at(i).first)
-            counter++;
-    }
-
-    if(counter == 5) return true;
     else return false;
 }
 
@@ -36,11 +32,12 @@ bool twoPair(CardSet& cardSet){
 }
 
 bool ThreeOfAKind(CardSet& cardSet){
-    short counter{ 0 };
+    short counter{ 1 };
 
     for(int i = 1; i < cardSet.size(); i++){
         if(cardSet.at(i - 1).second == cardSet.at(i).second)
             counter++;
+        if(counter == 3) break;
     }
 
     std::cout << counter << std::endl;
