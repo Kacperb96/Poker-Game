@@ -9,11 +9,15 @@ class DeckOfCardsFixture : public testing::Test{
         CardSet flushSet;
         CardSet onePairSet;
         CardSet twoPairSet;
+        CardSet threeOfaKindSet;
 };
 
 void DeckOfCardsFixture::SetUp(){
     flushSet = {std::make_pair(Figures::Ace, Colour::Clubs), std::make_pair(Figures::King, Colour::Clubs),
     std::make_pair( Figures::Queen, Colour::Clubs), std::make_pair(Figures::Jack, Colour::Clubs), std::make_pair(Figures::Ten, Colour::Clubs)};
+
+    threeOfaKindSet = {std::make_pair(Figures::Two, Colour::Diamonds), std::make_pair(Figures::Three, Colour::Hearts),
+    std::make_pair(Figures::Jack, Colour::Spades), std::make_pair(Figures::Jack, Colour::Hearts), std::make_pair(Figures::Jack, Colour::Diamonds)};
 
     onePairSet = {std::make_pair(Figures::Ace, Colour::Diamonds), std::make_pair(Figures::Three, Colour::Clubs),
     std::make_pair(Figures::Queen, Colour::Spades), std::make_pair(Figures::Six, Colour::Clubs), std::make_pair(Figures::Three, Colour::Clubs)};
@@ -40,6 +44,16 @@ TEST_F(DeckOfCardsFixture, IsOnePair){
     onePairSet.push_back(c);
 
     EXPECT_EQ(onePair(onePairSet), false);
+}
+
+TEST_F(DeckOfCardsFixture, IsThreeOfAKind){
+    EXPECT_EQ(threeOfAKind(threeOfaKindSet), true);
+    Card c = std::make_pair(Figures::Three, Colour::Diamonds);
+
+    threeOfaKindSet.pop_back();
+    threeOfaKindSet.push_back(c);
+
+    EXPECT_EQ(threeOfAKind(threeOfaKindSet), false);
 }
 
 TEST_F(DeckOfCardsFixture, IsFlush){

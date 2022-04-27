@@ -23,17 +23,10 @@ bool twoPair(CardSet& cardSet){
     return result;
 }
 
-bool ThreeOfAKind(CardSet& cardSet){
-    short counter{ 1 };
-
-    for(int i = 1; i < cardSet.size(); i++){
-        if(cardSet.at(i - 1).first == cardSet.at(i).first)
-            counter++;
-        if(counter == 3) break;
-    }
-
-    if(counter == 3) return true;
-    else return false;
+bool threeOfAKind(CardSet& cardSet){
+    bool result;
+    (countCards(cardSet) == 3) ? result = true : result = false;
+    return result;
 }
 
 bool flush(CardSet& cardSet){

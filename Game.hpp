@@ -32,6 +32,6 @@ using CardSet = std::vector<Card>;
 short countCards(CardSet);
 bool onePair(CardSet&);
 bool twoPair(CardSet&);
-bool ThreeOfAKind(CardSet&);
+bool threeOfAKind(CardSet&);
 bool flush(CardSet&);
 bool straight(CardSet&);
