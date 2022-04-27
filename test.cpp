@@ -113,8 +113,11 @@ TEST_F(DeckOfCardsFixture, IsQuads){
 
 TEST_F(DeckOfCardsFixture, IsStraightFlush){
     EXPECT_EQ(straightFlush(straightFlushSet), true);
-//    Card c = std::make_pair(Figures::Queen, Colour::Spades);
+    Card c = std::make_pair(Figures::Queen, Colour::Spades);
 
+    straightFlushSet.pop_back();
+    straightFlushSet.push_back(c);
+    EXPECT_EQ(straightFlush(straightFlushSet), false);
 }
 
 int main(int argc, char** argv){
