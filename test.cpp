@@ -13,9 +13,13 @@ class DeckOfCardsFixture : public testing::Test{
         CardSet threeOfaKindSet;
         CardSet fullHouseSet;
         CardSet quadsSet;
+        CardSet straightFlushSet;
 };
 
 void DeckOfCardsFixture::SetUp(){
+    straightFlushSet = {std::make_pair(Figures::Nine, Colour::Spades), std::make_pair(Figures::Six, Colour::Spades),
+    std::make_pair(Figures::Seven, Colour::Spades), std::make_pair(Figures::Eight, Colour::Spades), std::make_pair(Figures::Ten, Colour::Spades)};
+
     quadsSet = {std::make_pair(Figures::Ace, Colour::Clubs), std::make_pair(Figures::Ace, Colour::Diamonds),
     std::make_pair(Figures::King, Colour::Diamonds), std::make_pair(Figures::Ace, Colour::Hearts), std::make_pair(Figures::Ace, Colour::Spades)};
 
@@ -100,7 +104,16 @@ TEST_F(DeckOfCardsFixture, IsFullHouse){
 
 TEST_F(DeckOfCardsFixture, IsQuads){
     EXPECT_EQ(quads(quadsSet), true);
-    //Card c = std::make_pair(Figures::Ace, Colour::Spades);
+    Card c = std::make_pair(Figures::Queen, Colour::Spades);
+
+    quadsSet.pop_back();
+    quadsSet.push_back(c);
+    EXPECT_EQ(quads(quadsSet), false);
+}
+
+TEST_F(DeckOfCardsFixture, IsStraightFlush){
+    EXPECT_EQ(straightFlush(straightFlushSet), true);
+//    Card c = std::make_pair(Figures::Queen, Colour::Spades);
 
 }
 

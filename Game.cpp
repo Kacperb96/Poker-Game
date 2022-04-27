@@ -64,3 +64,7 @@ bool quads(CardSet& cardSet){
     (countCards(cardSet) == 6) ? result = true : result = false;
     return result;
 }
+
+bool straightFlush(CardSet& cardSet){
+
+}
