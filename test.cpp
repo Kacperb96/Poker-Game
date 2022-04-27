@@ -86,6 +86,12 @@ TEST_F(DeckOfCardsFixture, IsStraight){
 
 TEST_F(DeckOfCardsFixture, IsFullHouse){
     EXPECT_EQ(fullHouse(fullHouseSet), true);
+    Card c = std::make_pair(Figures::Ace, Colour::Spades);
+
+    fullHouseSet.pop_back();
+    fullHouseSet.push_back(c);
+
+    EXPECT_EQ(fullHouse(fullHouseSet), false);
 }
 
 int main(int argc, char** argv){
