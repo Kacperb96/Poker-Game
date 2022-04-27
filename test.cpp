@@ -6,6 +6,7 @@ class DeckOfCardsFixture : public testing::Test{
         void SetUp();
     protected:
         Card c1, c2, c3, c4, c5;
+        CardSet straightSet;
         CardSet flushSet;
         CardSet onePairSet;
         CardSet twoPairSet;
@@ -13,6 +14,9 @@ class DeckOfCardsFixture : public testing::Test{
 };
 
 void DeckOfCardsFixture::SetUp(){
+    straightSet = {std::make_pair(Figures::Nine, Colour::Spades), std::make_pair(Figures::Six, Colour::Diamonds),
+    std::make_pair(Figures::Seven, Colour::Clubs), std::make_pair(Figures::Eight, Colour::Clubs), std::make_pair(Figures::Ten, Colour::Hearts)};
+
     flushSet = {std::make_pair(Figures::Ace, Colour::Clubs), std::make_pair(Figures::King, Colour::Clubs),
     std::make_pair( Figures::Queen, Colour::Clubs), std::make_pair(Figures::Jack, Colour::Clubs), std::make_pair(Figures::Ten, Colour::Clubs)};
 
@@ -64,6 +68,16 @@ TEST_F(DeckOfCardsFixture, IsFlush){
     flushSet.push_back(c);
     
     EXPECT_EQ(flush(flushSet), false);
+}
+
+TEST_F(DeckOfCardsFixture, IsStraight){
+    EXPECT_EQ(straight(straightSet), true);
+    Card c = std::make_pair(Figures::King, Colour::Diamonds);
+
+    straightSet.pop_back();
+    straightSet.push_back(c);
+    
+    EXPECT_EQ(straight(straightSet), false);
 }
 
 int main(int argc, char** argv){
