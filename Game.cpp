@@ -52,3 +52,9 @@ bool straight(CardSet& cardSet){
     if(counter == 5) return true;
     return false;
 }
+
+bool fullHouse(CardSet& cardSet){
+    bool result;
+    
+    return result;
+}

@@ -35,3 +35,4 @@ bool twoPair(CardSet&);
 bool threeOfAKind(CardSet&);
 bool flush(CardSet&);
 bool straight(CardSet&);
+bool fullHouse(CardSet&);

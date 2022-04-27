@@ -11,9 +11,13 @@ class DeckOfCardsFixture : public testing::Test{
         CardSet onePairSet;
         CardSet twoPairSet;
         CardSet threeOfaKindSet;
+        CardSet fullHouseSet;
 };
 
 void DeckOfCardsFixture::SetUp(){
+    fullHouseSet = {std::make_pair(Figures::Jack, Colour::Diamonds), std::make_pair(Figures::Jack, Colour::Clubs),
+    std::make_pair(Figures::Queen, Colour::Clubs), std::make_pair(Figures::Queen, Colour::Diamonds), std::make_pair(Figures::Queen, Colour::Hearts)};
+
     straightSet = {std::make_pair(Figures::Nine, Colour::Spades), std::make_pair(Figures::Six, Colour::Diamonds),
     std::make_pair(Figures::Seven, Colour::Clubs), std::make_pair(Figures::Eight, Colour::Clubs), std::make_pair(Figures::Ten, Colour::Hearts)};
 
@@ -78,6 +82,10 @@ TEST_F(DeckOfCardsFixture, IsStraight){
     straightSet.push_back(c);
     
     EXPECT_EQ(straight(straightSet), false);
+}
+
+TEST_F(DeckOfCardsFixture, IsFullHouse){
+    EXPECT_EQ(fullHouse(fullHouseSet), true);
 }
 
 int main(int argc, char** argv){
