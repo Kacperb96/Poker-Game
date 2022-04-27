@@ -58,3 +58,9 @@ bool fullHouse(CardSet& cardSet){
     (countCards(cardSet) == 4) ? result = true : result = false;
     return result;
 }
+
+bool quads(CardSet& cardSet){
+    bool result;
+    (countCards(cardSet) == 6) ? result = true : result = false;
+    return result;
+}

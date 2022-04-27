@@ -12,9 +12,13 @@ class DeckOfCardsFixture : public testing::Test{
         CardSet twoPairSet;
         CardSet threeOfaKindSet;
         CardSet fullHouseSet;
+        CardSet quadsSet;
 };
 
 void DeckOfCardsFixture::SetUp(){
+    quadsSet = {std::make_pair(Figures::Ace, Colour::Clubs), std::make_pair(Figures::Ace, Colour::Diamonds),
+    std::make_pair(Figures::King, Colour::Diamonds), std::make_pair(Figures::Ace, Colour::Hearts), std::make_pair(Figures::Ace, Colour::Spades)};
+
     fullHouseSet = {std::make_pair(Figures::Jack, Colour::Diamonds), std::make_pair(Figures::Jack, Colour::Clubs),
     std::make_pair(Figures::Queen, Colour::Clubs), std::make_pair(Figures::Queen, Colour::Diamonds), std::make_pair(Figures::Queen, Colour::Hearts)};
 
@@ -92,6 +96,12 @@ TEST_F(DeckOfCardsFixture, IsFullHouse){
     fullHouseSet.push_back(c);
 
     EXPECT_EQ(fullHouse(fullHouseSet), false);
+}
+
+TEST_F(DeckOfCardsFixture, IsQuads){
+    EXPECT_EQ(quads(quadsSet), true);
+    //Card c = std::make_pair(Figures::Ace, Colour::Spades);
+
 }
 
 int main(int argc, char** argv){
