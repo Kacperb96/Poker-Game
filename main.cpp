@@ -8,8 +8,5 @@ int main(){
     std::make_pair(Ace, Diamonds),
     std::make_pair(Jack, Diamonds)};
 
-    straight(cardSet);
-    std::cout << "Is sorted: " << "\n" << std::boolalpha << straight1(cardSet) << std::endl;
-
     return 0;
 }

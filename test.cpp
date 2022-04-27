@@ -16,20 +16,20 @@ void DeckOfCardsFixture::SetUp(){
     std::make_pair( Figures::Queen, Colour::Clubs), std::make_pair(Figures::Jack, Colour::Clubs), std::make_pair(Figures::Ten, Colour::Clubs)};
 
     onePairSet = {std::make_pair(Figures::Ace, Colour::Diamonds), std::make_pair(Figures::Three, Colour::Clubs),
-    std::make_pair(Figures::Queen, Colour::Spades), std::make_pair( Figures::Six, Colour::Clubs), std::make_pair( Figures::Three, Colour::Clubs)};
+    std::make_pair(Figures::Queen, Colour::Spades), std::make_pair(Figures::Six, Colour::Clubs), std::make_pair(Figures::Three, Colour::Clubs)};
 
-    twoPairSet = {std::make_pair(Figures::Ace, Colour::Diamonds), std::make_pair( Figures::Ace, Colour::Hearts),
-    std::make_pair(Figures::King, Colour::Spades), std::make_pair(Figures::King, Colour::Clubs), std::make_pair( Figures::Jack, Colour::Clubs)};
+    twoPairSet = {std::make_pair(Figures::Ace, Colour::Diamonds), std::make_pair(Figures::Ace, Colour::Hearts),
+    std::make_pair(Figures::King, Colour::Spades), std::make_pair(Figures::King, Colour::Clubs), std::make_pair(Figures::Jack, Colour::Clubs)};
 };
 
 TEST_F(DeckOfCardsFixture, IsTwoPair){
     EXPECT_EQ(twoPair(twoPairSet), true);
-    Card c = std::make_pair(Figures::Three, Colour::Hearts);
+    Card c = std::make_pair(Figures::King, Colour::Hearts);
 
     twoPairSet.pop_back();
     twoPairSet.push_back(c);
 
-    //EXPECT_EQ(twoPair(twoPairSet), false);
+    EXPECT_EQ(twoPair(twoPairSet), false);
 }
 
 TEST_F(DeckOfCardsFixture, IsOnePair){

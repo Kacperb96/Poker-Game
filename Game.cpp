@@ -1,25 +1,26 @@
 #include "Game.hpp"
 
-bool onePair(CardSet& cardSet){
-    for (std::size_t i = 0; i < cardSet.size(); ++i) {
-        for (std::size_t j = i + 1; j < cardSet.size(); ++j) {
-            if (cardSet[i].first == cardSet[j].first)
-                return true;
+short countCards(CardSet cardSet){
+    short counter {0};
+    for(std::size_t i = 0; i < cardSet.size(); i++){
+        for(std::size_t j = i + 1; j < cardSet.size(); j++){
+            if(cardSet[j].first == cardSet[i].first) counter ++;
         }
     }
-    return false;
+
+    return counter;
+}
+
+bool onePair(CardSet& cardSet){
+    bool result;
+    (countCards(cardSet) == 1) ? result = true : result = false;
+    return result;
 }
 
 bool twoPair(CardSet& cardSet){
-    short counter{ 0 };
-
-    for(int i = 1; i < cardSet.size(); i++){
-        if(cardSet.at(i - 1).first == cardSet.at(i).first)
-            counter++;
-    }
-
-    if(counter == 2) return true;
-    else return false;
+    bool result;
+    (countCards(cardSet) == 2) ? result = true : result = false;
+    return result;
 }
 
 bool ThreeOfAKind(CardSet& cardSet){

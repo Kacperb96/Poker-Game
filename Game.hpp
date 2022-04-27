@@ -29,6 +29,7 @@ enum Figures{
 using Card = std::pair<Figures, Colour>;
 using CardSet = std::vector<Card>;
 
+short countCards(CardSet);
 bool onePair(CardSet&);
 bool twoPair(CardSet&);
 bool ThreeOfAKind(CardSet&);
