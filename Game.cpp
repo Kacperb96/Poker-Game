@@ -72,5 +72,7 @@ bool straightFlush(CardSet& cardSet){
 }
 
 bool royalFlush(CardSet& cardSet){
-    
+    bool result;    
+    (straightFlush(cardSet) && cardSet[0].first == 0) ? result = true : result = false;
+    return result;
 }
