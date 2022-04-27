@@ -70,3 +70,7 @@ bool straightFlush(CardSet& cardSet){
     (straight(cardSet) && flush(cardSet)) ? result = true : result = false;
     return result;
 }
+
+bool royalFlush(CardSet& cardSet){
+    
+}

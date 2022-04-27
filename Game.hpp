@@ -38,3 +38,4 @@ bool straight(CardSet&);
 bool fullHouse(CardSet&);
 bool quads(CardSet&);
 bool straightFlush(CardSet&);
+bool royalFlush(CardSet&);
