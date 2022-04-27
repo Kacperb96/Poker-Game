@@ -66,5 +66,7 @@ bool quads(CardSet& cardSet){
 }
 
 bool straightFlush(CardSet& cardSet){
-
+    bool result;
+    (straight(cardSet) && flush(cardSet)) ? result = true : result = false;
+    return result;
 }
