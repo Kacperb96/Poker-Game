@@ -111,7 +111,7 @@ TEST_F(DeckOfCardsFixture, IsStraightFlush){
 
 TEST_F(DeckOfCardsFixture, IsRoyalFlush){
     EXPECT_EQ(royalFlush(royalFlushSet), true);
-    Card c = std::make_pair(Figures::Queen, Colour::Spades);
+    Card c = std::make_pair(Figures::Ten, Colour::Spades);
     changeCardFromSet(royalFlushSet, c);
     EXPECT_EQ(straightFlush(royalFlushSet), false);
 }

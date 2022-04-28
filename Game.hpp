@@ -2,6 +2,7 @@
 #include <utility>
 #include <vector>
 #include <algorithm>
+#include <ctime>
 
 enum Colour{
     Spades,
@@ -39,3 +40,4 @@ bool fullHouse(CardSet&);
 bool quads(CardSet&);
 bool straightFlush(CardSet&);
 bool royalFlush(CardSet&);
+CardSet drawCards();

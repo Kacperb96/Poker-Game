@@ -76,3 +76,7 @@ bool royalFlush(CardSet& cardSet){
     (straightFlush(cardSet) && cardSet[0].first == 0) ? result = true : result = false;
     return result;
 }
+
+CardSet drawCards(){
+    
+}
