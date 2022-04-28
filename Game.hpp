@@ -35,10 +35,43 @@ inline std::ostream& operator<<(std::ostream& os, const Colour colour)
         case Hearts:
             os << "\xe2\x99\xa5"; break;
         case Diamonds:
-            os << "\xe2\x99\xa3"; break;
+            os << "\xe2\x99\xa6"; break;
         case Clubs:
-            os << "\xe2\x99\xa2"; break;
+            os << "\xe2\x99\xa7"; break;
         }
+    return os;
+}
+
+inline std::ostream& operator<<(std::ostream& os, const Figures figure)
+{
+  switch(figure){
+        case Ace:
+            os << "A"; break;
+        case King:
+            os << "K"; break;
+        case Queen:
+            os << "Q"; break;
+        case Jack:
+            os << "J"; break;
+        case Ten:
+            os << "10"; break;
+        case Nine:
+            os << "9"; break;
+        case Eight:
+            os << "8"; break;
+        case Seven:
+            os << "7"; break;
+        case Six:
+            os << "6"; break;
+        case Five:
+            os << "5"; break;
+        case Four:
+            os << "4"; break;
+        case Three:
+            os << "3"; break;
+        case Two:
+            os << "2"; break;
+    }
     return os;
 }
 
@@ -55,4 +88,5 @@ bool fullHouse(CardSet&);
 bool quads(CardSet&);
 bool straightFlush(CardSet&);
 bool royalFlush(CardSet&);
-CardSet drawCards();
+void drawCards(CardSet&);
+void printCardSet(CardSet&);
