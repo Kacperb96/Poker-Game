@@ -54,66 +54,66 @@ void DeckOfCardsFixture::SetUp(){
 };
 
 TEST_F(DeckOfCardsFixture, IsTwoPair){
-    EXPECT_EQ(twoPair(twoPairSet), true);
+    EXPECT_EQ(twoPair(twoPairSet), 3);
     Card c = std::make_pair(Figures::King, Colour::Hearts);
     changeCardFromSet(twoPairSet, c);
-    EXPECT_EQ(twoPair(twoPairSet), false);
+    EXPECT_EQ(twoPair(twoPairSet), 0);
 }
 
 TEST_F(DeckOfCardsFixture, IsOnePair){
-    EXPECT_EQ(onePair(onePairSet), true);
+    EXPECT_EQ(onePair(onePairSet), 2);
     Card c = std::make_pair(Figures::Jack, Colour::Diamonds);
     changeCardFromSet(onePairSet, c);
-    EXPECT_EQ(onePair(onePairSet), false);
+    EXPECT_EQ(onePair(onePairSet), 0);
 }
 
 TEST_F(DeckOfCardsFixture, IsThreeOfAKind){
-    EXPECT_EQ(threeOfAKind(threeOfaKindSet), true);
+    EXPECT_EQ(threeOfAKind(threeOfaKindSet), 4);
     Card c = std::make_pair(Figures::Three, Colour::Diamonds);
     changeCardFromSet(threeOfaKindSet, c);
-    EXPECT_EQ(threeOfAKind(threeOfaKindSet), false);
+    EXPECT_EQ(threeOfAKind(threeOfaKindSet), 0);
 }
 
 TEST_F(DeckOfCardsFixture, IsFlush){
-    EXPECT_EQ(flush(flushSet), true);
+    EXPECT_EQ(flush(flushSet), 6);
     Card c = std::make_pair(Figures::Six, Colour::Diamonds);
     changeCardFromSet(flushSet, c);
-    EXPECT_EQ(flush(flushSet), false);
+    EXPECT_EQ(flush(flushSet), 0);
 }
 
 TEST_F(DeckOfCardsFixture, IsStraight){
-    EXPECT_EQ(straight(straightSet), true);
+    EXPECT_EQ(straight(straightSet), 5);
     Card c = std::make_pair(Figures::King, Colour::Diamonds);
     changeCardFromSet(straightSet, c); 
-    EXPECT_EQ(straight(straightSet), false);
+    EXPECT_EQ(straight(straightSet), 0);
 }
 
 TEST_F(DeckOfCardsFixture, IsFullHouse){
-    EXPECT_EQ(fullHouse(fullHouseSet), true);
+    EXPECT_EQ(fullHouse(fullHouseSet), 7);
     Card c = std::make_pair(Figures::Ace, Colour::Spades);
     changeCardFromSet(fullHouseSet, c);
-    EXPECT_EQ(fullHouse(fullHouseSet), false);
+    EXPECT_EQ(fullHouse(fullHouseSet), 0);
 }
 
 TEST_F(DeckOfCardsFixture, IsQuads){
-    EXPECT_EQ(quads(quadsSet), true);
+    EXPECT_EQ(quads(quadsSet), 8);
     Card c = std::make_pair(Figures::Queen, Colour::Spades);
     changeCardFromSet(quadsSet, c);
-    EXPECT_EQ(quads(quadsSet), false);
+    EXPECT_EQ(quads(quadsSet), 0);
 }
 
 TEST_F(DeckOfCardsFixture, IsStraightFlush){
-    EXPECT_EQ(straightFlush(straightFlushSet), true);
+    EXPECT_EQ(straightFlush(straightFlushSet), 9);
     Card c = std::make_pair(Figures::Queen, Colour::Spades);
     changeCardFromSet(straightFlushSet, c);
-    EXPECT_EQ(straightFlush(straightFlushSet), false);
+    EXPECT_EQ(straightFlush(straightFlushSet), 0);
 }
 
 TEST_F(DeckOfCardsFixture, IsRoyalFlush){
-    EXPECT_EQ(royalFlush(royalFlushSet), true);
+    EXPECT_EQ(royalFlush(royalFlushSet), 10);
     Card c = std::make_pair(Figures::Ten, Colour::Spades);
     changeCardFromSet(royalFlushSet, c);
-    EXPECT_EQ(straightFlush(royalFlushSet), false);
+    EXPECT_EQ(straightFlush(royalFlushSet), 0);
 }
 
 int main(int argc, char** argv){

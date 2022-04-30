@@ -11,33 +11,33 @@ short countCards(CardSet cardSet){
     return counter;
 }
 
-bool onePair(CardSet& cardSet){
-    bool result;
-    (countCards(cardSet) == 1) ? result = true : result = false;
+short onePair(CardSet& cardSet){
+    short result;
+    (countCards(cardSet) == 1) ? result = 2 : result = 0;
     return result;
 }
 
-bool twoPair(CardSet& cardSet){
-    bool result;
-    (countCards(cardSet) == 2) ? result = true : result = false;
+short twoPair(CardSet& cardSet){
+    short result;
+    (countCards(cardSet) == 2) ? result = 3 : result = 0;
     return result;
 }
 
-bool threeOfAKind(CardSet& cardSet){
-    bool result;
-    (countCards(cardSet) == 3) ? result = true : result = false;
+short threeOfAKind(CardSet& cardSet){
+    short result;
+    (countCards(cardSet) == 3) ? result = 4 : result = 0;
     return result;
 }
 
-bool flush(CardSet& cardSet){
+short flush(CardSet& cardSet){
     if(std::all_of(cardSet.begin(), cardSet.end(), [&cardSet](Card c){
         return c.second == cardSet[0].second;   
-    })) return true;
+    })) return 6;
 
-    else return false;
+    else return 0;
 }
 
-bool straight(CardSet& cardSet){
+short straight(CardSet& cardSet){
     short counter { 1 };
     std::sort(cardSet.begin(), cardSet.end());
     
@@ -49,31 +49,31 @@ bool straight(CardSet& cardSet){
         }
     }
 
-    if(counter == 5) return true;
-    return false;
+    if(counter == 5) return 5;
+    return 0;
 }
 
-bool fullHouse(CardSet& cardSet){
-    bool result;
-    (countCards(cardSet) == 4) ? result = true : result = false;
+short fullHouse(CardSet& cardSet){
+    short result;
+    (countCards(cardSet) == 4) ? result = 7 : result = 0;
     return result;
 }
 
-bool quads(CardSet& cardSet){
-    bool result;
-    (countCards(cardSet) == 6) ? result = true : result = false;
+short quads(CardSet& cardSet){
+    short result;
+    (countCards(cardSet) == 6) ? result = 8 : result = 0;
     return result;
 }
 
-bool straightFlush(CardSet& cardSet){
-    bool result;
-    (straight(cardSet) && flush(cardSet)) ? result = true : result = false;
+short straightFlush(CardSet& cardSet){
+    short result;
+    (straight(cardSet) && flush(cardSet)) ? result = 9 : result = 0;
     return result;
 }
 
-bool royalFlush(CardSet& cardSet){
-    bool result;    
-    (straightFlush(cardSet) && cardSet[0].first == 0) ? result = true : result = false;
+short royalFlush(CardSet& cardSet){
+    short result;    
+    (straightFlush(cardSet) && cardSet[0].first == 0) ? result = 10 : result = 0;
     return result;
 }
 
