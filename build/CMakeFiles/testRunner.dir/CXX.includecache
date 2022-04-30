@@ -17,6 +17,8 @@ algorithm
 -
 ctime
 -
+thread
+-
 
 /home/kacper/Pulpit/PokerGame/Poker-Game/test.cpp
 gtest/gtest.h
