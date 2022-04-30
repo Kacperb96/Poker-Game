@@ -93,3 +93,21 @@ void printCardSet(CardSet &x){
     }
     std::cout << std::endl;
 }
+
+CardSet creatingCardDeck(){
+    CardSet cardDeck;
+    short colourNum {0};
+    short cardNum {0};
+    do{
+        if(colourNum > 3){
+            colourNum = 0;
+            cardNum++;
+        }
+        else{
+            cardDeck.push_back(std::make_pair(static_cast<Figures>(cardNum), static_cast<Colour>(colourNum)));
+            colourNum++;
+        }
+    }while(cardNum < 13);
+
+    return cardDeck;
+}

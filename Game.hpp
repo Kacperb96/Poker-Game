@@ -78,6 +78,8 @@ inline std::ostream& operator<<(std::ostream& os, const Figures figure)
 using Card = std::pair<Figures, Colour>;
 using CardSet = std::vector<Card>;
 
+
+CardSet creatingCardDeck();
 short countCards(CardSet);
 bool onePair(CardSet&);
 bool twoPair(CardSet&);
