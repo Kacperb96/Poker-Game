@@ -1,7 +1,6 @@
 #include "Game.hpp"
 
 int main(){
-    std::cout << "Hello from Main" << std::endl;
     CardSet cardSet1;
     CardSet cardSet2;
     CardSet cardDeck = creatingCardDeck();
@@ -9,17 +8,20 @@ int main(){
     drawCards(cardSet1, cardDeck);
     std::this_thread::sleep_for(std::chrono::seconds(1));
     drawCards(cardSet2, cardDeck);
+
     std::cout << "First set" << std::endl;
     printCardSet(cardSet1);
+    cardCombination(cardSet1);
     std::cout << std::endl;
     std::this_thread::sleep_for(std::chrono::seconds(1));
     std::cout << "Second set" << std::endl;
     printCardSet(cardSet2);
+    cardCombination(cardSet2);
     std::cout << "\n";
-    
-    for(int i = 0; i < cardDeck.size(); i++){
+
+    /*for(int i = 0; i < cardDeck.size(); i++){
         std::cout << cardDeck[i].first << cardDeck[i].second << " ";
-    }
+    }*/
     std::cout << "\n";
 
     return 0;

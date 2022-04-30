@@ -111,3 +111,16 @@ void printCardSet(CardSet &x){
     }
     std::cout << std::endl;
 }
+
+void cardCombination(CardSet& cardSet){
+    if(onePair(cardSet) == 2) std::cout << "One Pair\n";
+    else if(twoPair(cardSet) == 3) std::cout << "Two pair\n";
+    else if(threeOfAKind(cardSet) == 4) std::cout << "Three of a kind\n";
+    else if(straight(cardSet) == 5) std::cout << "Straight\n";
+    else if(flush(cardSet) == 6) std::cout << "Flush\n";
+    else if(fullHouse(cardSet) == 7) std::cout << "Full house\n";
+    else if(quads(cardSet) == 8) std::cout << "Four of a kind\n";
+    else if(straightFlush(cardSet) == 9) std::cout << "Straight flush\n";
+    else if(royalFlush(cardSet) == 10) std::cout << "Royal flush\n";
+    else std::cout << "High card\n";
+}

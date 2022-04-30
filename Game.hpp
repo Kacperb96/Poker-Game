@@ -92,3 +92,4 @@ short straightFlush(CardSet&);
 short royalFlush(CardSet&);
 void drawCards(CardSet&, CardSet&);
 void printCardSet(CardSet&);
+void cardCombination(CardSet&);
