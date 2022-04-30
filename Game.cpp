@@ -77,23 +77,6 @@ bool royalFlush(CardSet& cardSet){
     return result;
 }
 
-void drawCards(CardSet& v){
-    srand(time(NULL));
-    for (auto n = 0, i = 0, j = 0; n <= 4; n++){
-            j = std::rand() % 13;
-            i = std::rand() % 4;
-            v.push_back(std::make_pair(static_cast<Figures>(j), static_cast<Colour>(i)));
-    }
-    random_shuffle(v.begin(), v.end());
-}
-
-void printCardSet(CardSet &x){
-    for (size_t i = 0; i < x.size(); ++i){
-        std::cout << x[i].first << x[i].second << "\t";
-    }
-    std::cout << std::endl;
-}
-
 CardSet creatingCardDeck(){
     CardSet cardDeck;
     short colourNum {0};
@@ -110,4 +93,27 @@ CardSet creatingCardDeck(){
     }while(cardNum < 13);
 
     return cardDeck;
+}
+
+void drawCards(CardSet& cardSet, CardSet& cardDeck){
+    srand(time(NULL));
+    /*for (auto n = 0, i = 0, j = 0; n <= 4; n++){
+            j = std::rand() % 13;
+            i = std::rand() % 4;
+            v.push_back(std::make_pair(static_cast<Figures>(j), static_cast<Colour>(i)));
+    }
+    random_shuffle(v.begin(), v.end());*/
+    int a {0};
+    for (int i = 0, it = 5; i < 5; i++, it--){
+        a = rand() % it; 
+        cardSet.push_back(cardDeck[a]);
+        cardDeck.erase(cardDeck.begin() + a);
+    }
+}
+
+void printCardSet(CardSet &x){
+    for (size_t i = 0; i < x.size(); ++i){
+        std::cout << x[i].first << x[i].second << "\t";
+    }
+    std::cout << std::endl;
 }
