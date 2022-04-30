@@ -2,18 +2,18 @@
 
 int main(){
     std::cout << "Hello from Main" << std::endl;
-    CardSet cardSet;
+    CardSet cardSet1;
+    CardSet cardSet2;
     CardSet cardDeck = creatingCardDeck();
     
-    
-    for(int i = 0; i < 52; i++){
-        if(i % 4 == 0) std::cout << "\n";
-        std::cout << cardDeck[i].first << cardDeck[i].second << std::endl;
-    }
+    drawCards(cardSet1, cardDeck);
+    drawCards(cardSet2, cardDeck);
+    std::cout << "First set" << std::endl;
+    printCardSet(cardSet1);
+    std::cout << std::endl;
+    std::cout << "Second set" << std::endl;
+    printCardSet(cardSet2);
     std::cout << "\n";
-
-    drawCards(cardSet, cardDeck);
-    printCardSet(cardSet);
 
     return 0;
 }
