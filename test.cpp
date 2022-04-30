@@ -17,6 +17,7 @@ class DeckOfCardsFixture : public testing::Test{
         CardSet quadsSet;
         CardSet straightFlushSet;
         CardSet royalFlushSet;
+        CardSet testFlush;
 };
 
 void DeckOfCardsFixture::changeCardFromSet(CardSet& cardSet, Card& c){
@@ -32,7 +33,7 @@ void DeckOfCardsFixture::SetUp(){
     std::make_pair(Figures::Seven, Colour::Spades), std::make_pair(Figures::Eight, Colour::Spades), std::make_pair(Figures::Ten, Colour::Spades)};
 
     quadsSet = {std::make_pair(Figures::Ace, Colour::Clubs), std::make_pair(Figures::Ace, Colour::Diamonds),
-    std::make_pair(Figures::King, Colour::Diamonds), std::make_pair(Figures::Ace, Colour::Hearts), std::make_pair(Figures::Ace, Colour::Spades)};
+    std::make_pair(Figures::Seven, Colour::Diamonds), std::make_pair(Figures::Ace, Colour::Hearts), std::make_pair(Figures::Ace, Colour::Spades)};
 
     fullHouseSet = {std::make_pair(Figures::Jack, Colour::Diamonds), std::make_pair(Figures::Jack, Colour::Clubs),
     std::make_pair(Figures::Queen, Colour::Clubs), std::make_pair(Figures::Queen, Colour::Diamonds), std::make_pair(Figures::Queen, Colour::Hearts)};
@@ -41,7 +42,7 @@ void DeckOfCardsFixture::SetUp(){
     std::make_pair(Figures::Seven, Colour::Clubs), std::make_pair(Figures::Eight, Colour::Clubs), std::make_pair(Figures::Ten, Colour::Hearts)};
 
     flushSet = {std::make_pair(Figures::Ace, Colour::Clubs), std::make_pair(Figures::King, Colour::Clubs),
-    std::make_pair( Figures::Queen, Colour::Clubs), std::make_pair(Figures::Jack, Colour::Clubs), std::make_pair(Figures::Ten, Colour::Clubs)};
+    std::make_pair(Figures::Queen, Colour::Clubs), std::make_pair(Figures::Two, Colour::Clubs), std::make_pair(Figures::Ten, Colour::Clubs)};
 
     threeOfaKindSet = {std::make_pair(Figures::Two, Colour::Diamonds), std::make_pair(Figures::Three, Colour::Hearts),
     std::make_pair(Figures::Jack, Colour::Spades), std::make_pair(Figures::Jack, Colour::Hearts), std::make_pair(Figures::Jack, Colour::Diamonds)};
@@ -52,6 +53,18 @@ void DeckOfCardsFixture::SetUp(){
     twoPairSet = {std::make_pair(Figures::Ace, Colour::Diamonds), std::make_pair(Figures::Ace, Colour::Hearts),
     std::make_pair(Figures::King, Colour::Spades), std::make_pair(Figures::King, Colour::Clubs), std::make_pair(Figures::Jack, Colour::Clubs)};
 };
+
+TEST_F(DeckOfCardsFixture, CardsCombinationChecking){
+    EXPECT_EQ(cardsCombination(onePairSet), "One Pair\n");
+    EXPECT_EQ(cardsCombination(twoPairSet), "Two pair\n");
+    EXPECT_EQ(cardsCombination(threeOfaKindSet), "Three of a kind\n");
+    EXPECT_EQ(cardsCombination(straightSet), "Straight\n");
+    EXPECT_EQ(cardsCombination(flushSet), "Flush\n");
+    EXPECT_EQ(cardsCombination(fullHouseSet), "Full house\n");
+    EXPECT_EQ(cardsCombination(quadsSet), "Four of a kind\n");
+    //EXPECT_EQ(cardsCombination(straightFlushSet), "Straight flush\n");
+    //EXPECT_EQ(cardsCombination(royalFlushSet), "Royal flush\n");
+}
 
 TEST_F(DeckOfCardsFixture, IsTwoPair){
     EXPECT_EQ(twoPair(twoPairSet), 3);
