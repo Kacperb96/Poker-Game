@@ -29,14 +29,6 @@ const short threeOfAKind(CardSet& cardSet){
     return result;
 }
 
-const short flush(CardSet& cardSet){
-    if(std::all_of(cardSet.begin(), cardSet.end(), [&cardSet](Card c){
-        return c.second == cardSet[0].second;   
-    })) return 6;
-
-    else return 0;
-}
-
 const short straight(CardSet& cardSet){
     short counter { 1 };
     std::sort(cardSet.begin(), cardSet.end());
@@ -51,6 +43,14 @@ const short straight(CardSet& cardSet){
 
     if(counter == 5) return 5;
     return 0;
+}
+
+const short flush(CardSet& cardSet){
+    if(std::all_of(cardSet.begin(), cardSet.end(), [&cardSet](Card c){
+        return c.second == cardSet[0].second;   
+    })) return 6;
+
+    else return 0;
 }
 
 const short fullHouse(CardSet& cardSet){
@@ -68,6 +68,7 @@ const short quads(CardSet& cardSet){
 const short straightFlush(CardSet& cardSet){
     short result;
     (straight(cardSet) && flush(cardSet)) ? result = 9 : result = 0;
+
     return result;
 }
 
@@ -125,7 +126,6 @@ std::string cardsCombination(CardSet& cardSet){
     else if(straightFlush(cardSet) == 9) {result = "Straight flush\n"; counter += 8;}
     else if(royalFlush(cardSet) == 10) {result = "Royal flush\n"; counter += 9;}
     else result = "High card\n";
-    std::cout << result << std::endl;
 
     return result;
 }
