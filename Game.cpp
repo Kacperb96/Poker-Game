@@ -67,7 +67,7 @@ const short quads(CardSet& cardSet){
 
 const short straightFlush(CardSet& cardSet){
     short result;
-    (straight(cardSet) && flush(cardSet)) ? result = 9 : result = 0;
+    (straight(cardSet) == 5 && flush(cardSet) == 6) ? result = 9 : result = 0;
 
     return result;
 }
@@ -119,8 +119,8 @@ std::string cardsCombination(CardSet& cardSet){
     if(onePair(cardSet) == 2) {result = "One Pair\n"; counter++;}
     else if(twoPair(cardSet) == 3) {result = "Two pair\n"; counter += 2;}
     else if(threeOfAKind(cardSet) == 4){result = "Three of a kind\n"; counter += 3;}
-    else if(straight(cardSet) == 5) {result = "Straight\n"; counter += 4;} 
-    else if(flush(cardSet) == 6) {result = "Flush\n"; counter += 5;}
+    else if(straight(cardSet) == 5 && flush(cardSet) == 0) {result = "Straight\n"; counter += 4;} 
+    else if(flush(cardSet) == 6 && straight(cardSet) == 0) {result = "Flush\n"; counter += 5;}
     else if(fullHouse(cardSet) == 7) {result = "Full house\n"; counter += 6;}
     else if(quads(cardSet) == 8) {result = "Four of a kind\n"; counter += 7;}
     else if(straightFlush(cardSet) == 9) {result = "Straight flush\n"; counter += 8;}

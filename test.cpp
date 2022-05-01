@@ -62,7 +62,7 @@ TEST_F(DeckOfCardsFixture, CardsCombinationChecking){
     EXPECT_EQ(cardsCombination(flushSet), "Flush\n");
     EXPECT_EQ(cardsCombination(fullHouseSet), "Full house\n");
     EXPECT_EQ(cardsCombination(quadsSet), "Four of a kind\n");
-    //EXPECT_EQ(cardsCombination(straightFlushSet), "Straight flush\n");
+    EXPECT_EQ(cardsCombination(straightFlushSet), "Straight flush\n");
     //EXPECT_EQ(cardsCombination(royalFlushSet), "Royal flush\n");
 }
 
