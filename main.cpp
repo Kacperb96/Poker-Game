@@ -8,8 +8,8 @@ int main(){
     CardSet testSet;
     CardSet cardDeck = creatingCardDeck();
     
-    testSet = {std::make_pair(Figures::Seven, Colour::Clubs), std::make_pair(Figures::Four, Colour::Clubs),
-    std::make_pair(Figures::Three, Colour::Clubs), std::make_pair(Figures::Five, Colour::Clubs), std::make_pair(Figures::Six, Colour::Clubs)};
+    testSet = {std::make_pair(Figures::King, Colour::Clubs), std::make_pair(Figures::Ten, Colour::Clubs),
+    std::make_pair(Figures::Queen, Colour::Clubs), std::make_pair(Figures::Jack, Colour::Clubs), std::make_pair(Figures::Ace, Colour::Clubs)};
 
     drawCards(cardSet1, cardDeck);
     //std::this_thread::sleep_for(std::chrono::seconds(1));

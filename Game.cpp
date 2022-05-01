@@ -67,14 +67,14 @@ const short quads(CardSet& cardSet){
 
 const short straightFlush(CardSet& cardSet){
     short result;
-    (straight(cardSet) == 5 && flush(cardSet) == 6) ? result = 9 : result = 0;
+    (straight(cardSet) == 5 && flush(cardSet) == 6 && cardSet[0].first != 0) ? result = 9 : result = 0;
 
     return result;
 }
 
 const short royalFlush(CardSet& cardSet){
     short result;    
-    (straightFlush(cardSet) && cardSet[0].first == 0) ? result = 10 : result = 0;
+    (straight(cardSet) == 5 && flush(cardSet) == 6 && cardSet[0].first == 0) ? result = 10 : result = 0;
     return result;
 }
 
