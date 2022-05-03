@@ -107,10 +107,12 @@ void drawCards(CardSet& cardSet, CardSet& cardDeck){
 }
 
 void printCardSet(CardSet &x){
+    std::cout << "――――――――――――――――――――――――――――――――――\n";
     for (size_t i = 0; i < x.size(); ++i){
         std::cout << x[i].first << x[i].second << "\t";
     }
     std::cout << std::endl;
+    std::cout << "――――――――――――――――――――――――――――――――――\n";
 }
 
 std::string cardsCombination(CardSet& cardSet){
@@ -128,4 +130,20 @@ std::string cardsCombination(CardSet& cardSet){
     else result = "High card\n";
 
     return result;
+}
+
+void changeCards(CardSet& cardSet){
+    int choice;
+    int cardNum;
+    std::cout << "How many cards do you want to change: ";
+    std::cin >> choice;
+    std::cout << "Type card position and press ENTER...\n";
+
+    for(int i = 0; i < choice; i++){
+        std::cin >> cardNum;
+        cardSet.erase(cardSet.begin() + cardNum - 1);
+        std::cout << "Card remains \n";
+        printCardSet(cardSet);
+        std::cout << "Type card position and press ENTER...\n";
+    }
 }

@@ -93,3 +93,4 @@ const short royalFlush(CardSet&);
 void drawCards(CardSet&, CardSet&);
 void printCardSet(CardSet&);
 std::string cardsCombination(CardSet&);
+void changeCards(CardSet&);
