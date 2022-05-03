@@ -142,8 +142,6 @@ void changeCards(CardSet& cardSet, CardSet& cardDeck){
         if(i == choice - 1){
             std::cin >> cardNum;
             cardSet.erase(cardSet.begin() + cardNum - 1);
-            std::cout << "Cards remaining \n";
-            printCardSet(cardSet);
             system("clear");
         }
         else{
