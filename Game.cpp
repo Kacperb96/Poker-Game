@@ -96,10 +96,10 @@ CardSet creatingCardDeck(){
     return cardDeck;
 }
 
-void drawCards(CardSet& cardSet, CardSet& cardDeck){
+void drawCards(CardSet& cardSet, CardSet& cardDeck, short j = 5){
     srand(time(NULL));
     int a {0};
-    for (int i = 0, it = 52; i < 5; i++, it--){
+    for (int i = 0, it = 52; i < j; i++, it--){
         a = rand() % it; 
         cardSet.push_back(cardDeck[a]);
         cardDeck.erase(cardDeck.begin() + a);
@@ -116,23 +116,22 @@ void printCardSet(CardSet &x){
 }
 
 std::string cardsCombination(CardSet& cardSet){
-    int counter = 0;
     std::string result;
-    if(onePair(cardSet) == 2) {result = "One Pair\n"; counter++;}
-    else if(twoPair(cardSet) == 3) {result = "Two pair\n"; counter += 2;}
-    else if(threeOfAKind(cardSet) == 4){result = "Three of a kind\n"; counter += 3;}
-    else if(straight(cardSet) == 5 && flush(cardSet) == 0) {result = "Straight\n"; counter += 4;} 
-    else if(flush(cardSet) == 6 && straight(cardSet) == 0) {result = "Flush\n"; counter += 5;}
-    else if(fullHouse(cardSet) == 7) {result = "Full house\n"; counter += 6;}
-    else if(quads(cardSet) == 8) {result = "Four of a kind\n"; counter += 7;}
-    else if(straightFlush(cardSet) == 9) {result = "Straight flush\n"; counter += 8;}
-    else if(royalFlush(cardSet) == 10) {result = "Royal flush\n"; counter += 9;}
+    if(onePair(cardSet) == 2) result = "One Pair\n";
+    else if(twoPair(cardSet) == 3) result = "Two pair\n"; 
+    else if(threeOfAKind(cardSet) == 4) result = "Three of a kind\n";
+    else if(straight(cardSet) == 5 && flush(cardSet) == 0) result = "Straight\n";  
+    else if(flush(cardSet) == 6 && straight(cardSet) == 0) result = "Flush\n"; 
+    else if(fullHouse(cardSet) == 7) result = "Full house\n"; 
+    else if(quads(cardSet) == 8) result = "Four of a kind\n";
+    else if(straightFlush(cardSet) == 9) result = "Straight flush\n";
+    else if(royalFlush(cardSet) == 10) result = "Royal flush\n";
     else result = "High card\n";
 
     return result;
 }
 
-void changeCards(CardSet& cardSet){
+void changeCards(CardSet& cardSet, CardSet& cardDeck){
     int choice;
     int cardNum;
     std::cout << "How many cards do you want to change: ";
@@ -140,10 +139,21 @@ void changeCards(CardSet& cardSet){
     std::cout << "Type card position and press ENTER...\n";
 
     for(int i = 0; i < choice; i++){
-        std::cin >> cardNum;
-        cardSet.erase(cardSet.begin() + cardNum - 1);
-        std::cout << "Card remains \n";
-        printCardSet(cardSet);
-        std::cout << "Type card position and press ENTER...\n";
+        if(i == choice - 1){
+            std::cin >> cardNum;
+            cardSet.erase(cardSet.begin() + cardNum - 1);
+            std::cout << "Cards remaining \n";
+            printCardSet(cardSet);
+            system("clear");
+        }
+        else{
+            std::cin >> cardNum;
+            cardSet.erase(cardSet.begin() + cardNum - 1);
+            std::cout << "Cards remaining \n";
+            printCardSet(cardSet);
+            std::cout << "Type card position and press ENTER...\n";
+        }
     }
+
+    drawCards(cardSet, cardDeck, choice);
 }

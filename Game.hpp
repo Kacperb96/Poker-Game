@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <ctime>
 #include <thread>
+#include <cstdlib>
 
 enum Colour{
     Spades,
@@ -90,7 +91,7 @@ const short fullHouse(CardSet&);
 const short quads(CardSet&);
 const short straightFlush(CardSet&);
 const short royalFlush(CardSet&);
-void drawCards(CardSet&, CardSet&);
+void drawCards(CardSet&, CardSet&, short);
 void printCardSet(CardSet&);
 std::string cardsCombination(CardSet&);
-void changeCards(CardSet&);
+void changeCards(CardSet&, CardSet&);

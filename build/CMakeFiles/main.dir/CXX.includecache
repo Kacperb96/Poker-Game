@@ -19,6 +19,8 @@ ctime
 -
 thread
 -
+cstdlib
+-
 
 /home/kacper/Pulpit/PokerGame/Poker-Game/main.cpp
 Game.hpp
